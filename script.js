@@ -7,7 +7,7 @@ var numbers="0123456789";
 var specialCharacters="%$@!*()?#=+";
 
 function generatePassword(){
-
+varsavePassword=""
  var passwordSize=window.prompt("Choose a password size between 8 and 128")
  
  if(passwordSize >=8 && passwordSize <=128){
@@ -15,6 +15,26 @@ var isSpecialCharacter=window.confirm("Do you want to include special character 
 var isNumber=window.confirm("Do you want to include numbers in your password?")
 var isLowerCase=window.confirm("Do you want to include lowercase in your password?")
 var isUpperCase=window.confirm("Do you want to include uppercase in your password?")
+
+if(isSpecialCharacter===true) {
+    var randomIndex= Math.floor(Math.random()* specialCharacter.length)
+savePassword= savePassword + specialCharacters[randomIndex]
+}
+
+if(isNumber===true) {
+    var randomIndex= Math.floor(Math.random()* number.length)
+savePassword= savePassword + number[randomIndex]
+}
+
+if(isUpperCase===true) {
+    var randomIndex= Math.floor(Math.random()* upperCase.length)
+savePassword= savePassword + upperCase[randomIndex]
+}
+
+if(isLowerCase===true) {
+    var randomIndex= Math.floor(Math.random()* lowerCase.length)
+savePassword= savePassword + lowerCase[randomIndex]
+}
 
  }else{window.alert("Sorry, you are outside the password range")}
 
