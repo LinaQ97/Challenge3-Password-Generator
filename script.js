@@ -1,62 +1,62 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var upperCase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowerCase="abcdefghijklmnopqrstuvwxyz";
-var numbers="0123456789";
-var specialCharacters="%$@!*()?#=+";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "0123456789";
+var specialCharacters = "%$@!*()?#=+";
 
-function generatePassword(){
-varsavePassword=""
- var passwordSize=window.prompt("Choose a password size between 8 and 128")
- 
- if(passwordSize >=8 && passwordSize <=128){
-var isSpecialCharacter=window.confirm("Do you want to include special character in your password?")
-var isNumber=window.confirm("Do you want to include numbers in your password?")
-var isLowerCase=window.confirm("Do you want to include lowercase in your password?")
-var isUpperCase=window.confirm("Do you want to include uppercase in your password?")
+function generatePassword() {
+    var savePassword = ""
+    var passwordSize = window.prompt("Choose a password size between 8 and 128")
 
-if(isSpecialCharacter===true) {
-    var randomIndex= Math.floor(Math.random()* specialCharacter.length)
-savePassword= savePassword + specialCharacters[randomIndex]
-}
+    if (passwordSize >= 8 && passwordSize <= 128) {
+        var isSpecialCharacter = window.confirm("Do you want to include special character in your password?")
+        var isNumber = window.confirm("Do you want to include numbers in your password?")
+        var isLowerCase = window.confirm("Do you want to include lowercase in your password?")
+        var isUpperCase = window.confirm("Do you want to include uppercase in your password?")
 
-if(isNumber===true) {
-    var randomIndex= Math.floor(Math.random()* number.length)
-savePassword= savePassword + number[randomIndex]
-}
+        if (isSpecialCharacter === true) {
+            var randomIndex = Math.floor(Math.random() * specialCharacters.length)
+            savePassword = savePassword + specialCharacters[randomIndex]
+        }
 
-if(isUpperCase===true) {
-    var randomIndex= Math.floor(Math.random()* upperCase.length)
-savePassword= savePassword + upperCase[randomIndex]
-}
+        if (isNumber === true) {
+            var randomIndex = Math.floor(Math.random() * numbers.length)
+            savePassword = savePassword + numbers[randomIndex]
+        }
 
-if(isLowerCase===true) {
-    var randomIndex= Math.floor(Math.random()* lowerCase.length)
-savePassword= savePassword + lowerCase[randomIndex]
-}
+        if (isUpperCase === true) {
+            var randomIndex = Math.floor(Math.random() * upperCase.length)
+            savePassword = savePassword + upperCase[randomIndex]
+        }
 
- }else{window.alert("Sorry, you are outside the password range")}
+        if (isLowerCase === true) {
+            var randomIndex = Math.floor(Math.random() * lowerCase.length)
+            savePassword = savePassword + lowerCase[randomIndex]
+        }
 
-var userLength = window.prompt("How many characters would you like your password to contain?")
+        if (isSpecialCharacter == false && isNumber === false && isLowerCase === false && isUpperCase === false) {
+            window.alert("You must pick one character type")
+            return ""
+        }
 
-var isLowerCase=window.confirm("Include Lowercase")
+    } else {
+        window.alert("Sorry, you are outside the password range")
+    }
 
-window.alert("Invalid")
-
-console.log(userLength)
-
-console.log(isLowerCase)
-
+    return savePassword
 
 }
+
+
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
 
 }
 
